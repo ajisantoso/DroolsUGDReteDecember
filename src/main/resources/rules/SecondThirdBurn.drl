@@ -1,0 +1,17 @@
+//created on: Dec 15, 2017
+package symptomsBased
+import com.ajitrisantoso.ItemSymptoms;
+import com.ajitrisantoso.ItemRS;
+import com.ajitrisantoso.Hope;
+rule "SecondThirdBurn"
+	when
+        //conditions
+        $item : ItemSymptoms (typeofSymptoms == ItemSymptoms.Symptoms.SecondThirdBurn)
+         exists( ItemRS ( available == true ) )
+        itemRS : ItemRS( DrSpSyaraf == "ADA"&& kamarInap == 1) 
+    then
+        //actions
+        System.out.println( "Terdapat Rumah Sakit Sesuai Dengan Kondisi Pasien :  " + itemRS.getNamaRS() );
+        $item.setExpertRec("Explanation Berdasar Kondisi Pasien :  Terdekat, Dokter Syaraf,Kamar Inap Tersedia");
+end
+

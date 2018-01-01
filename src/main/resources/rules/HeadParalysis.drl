@@ -1,0 +1,18 @@
+//created on: Dec 15, 2017
+package symptomsBased
+import com.ajitrisantoso.ItemSymptoms;
+import com.ajitrisantoso.ItemRS;
+import com.ajitrisantoso.Hope;
+
+rule "HeadParalysis"
+	when
+        //conditions
+        $item : ItemSymptoms (typeofSymptoms == ItemSymptoms.Symptoms.HeadParalysis)
+         exists( ItemRS ( available == true ) )
+        itemRS : ItemRS( DrSpSyaraf == "ADA" && OR ==1 && kamarInap == 1)  
+    then
+        //actions
+        System.out.println( "Terdapat Rumah Sakit Sesuai Dengan Kondisi Pasien :  " + itemRS.getNamaRS() );
+        $item.setExpertRec("Terdekat, Dokter Bedah Syaraf,Kamar Operasi,Kamar Inap Tersedia");
+end
+

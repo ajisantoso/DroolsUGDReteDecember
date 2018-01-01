@@ -1,0 +1,18 @@
+//created on: Dec 15, 2017
+package symptomsBased
+import com.ajitrisantoso.ItemSymptoms;
+import com.ajitrisantoso.ItemRS;
+import com.ajitrisantoso.Hope;
+
+rule "SnakePoison"
+	when
+        //conditions
+        $item : ItemSymptoms (typeofSymptoms == ItemSymptoms.Symptoms.SnakePoison)
+         exists( ItemRS ( available == true ) )
+        itemRS : ItemRS( DrUmum == "ADA") 
+    then
+        //actions
+        System.out.println( "Terdapat Rumah Sakit Sesuai Dengan Kondisi Pasien :  " + itemRS.getNamaRS() );
+        $item.setExpertRec("Terdekat, Dokter Jaga Umum");
+end
+

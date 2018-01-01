@@ -1,0 +1,16 @@
+//created on: Dec 15, 2017
+package symptomsBased
+
+import com.ajitrisantoso.ItemSymptoms;
+import com.ajitrisantoso.ItemRS;
+import com.ajitrisantoso.Hope;
+
+rule "Hope Lives"
+    salience 10
+        when
+            exists( Hope() )
+        then
+            System.out.println("Terdapat UGD tersedia di Kota Bandung");
+            
+end
+

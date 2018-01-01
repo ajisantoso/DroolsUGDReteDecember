@@ -1,0 +1,18 @@
+//created on: Dec 15, 2017
+package symptomsBased
+import com.ajitrisantoso.ItemSymptoms;
+import com.ajitrisantoso.ItemRS;
+import com.ajitrisantoso.Hope;
+
+rule "ChestPain"
+	when
+        //conditions
+        $item : ItemSymptoms (typeofSymptoms == ItemSymptoms.Symptoms.ChestPain)
+        exists( ItemRS ( available == true ) )
+        itemRS : ItemRS( DrSpBedah == "ADA" && OR == 1)  
+    then
+        //actions
+         System.out.println( "Terdapat Rumah Sakit Sesuai Dengan Kondisi Pasien :  " + itemRS.getNamaRS() );
+        $item.setExpertRec("Explanation: Terdekat, Dokter Spesialist Bedah, Ruang Operasi Tersedia");
+end
+

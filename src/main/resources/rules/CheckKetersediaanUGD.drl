@@ -1,0 +1,19 @@
+//created on: Dec 15, 2017
+package symptomsBased
+
+import com.ajitrisantoso.ItemSymptoms;
+import com.ajitrisantoso.ItemRS;
+import com.ajitrisantoso.Hope;
+
+rule "Available RS"
+    salience 10
+    when
+        exists( ItemRS ( available == true ) )
+        //exists( ItemRS ( VK == 1 ))
+        itemRS : ItemRS( VK == 1 )   
+    then
+    	//System.out.println( "Terdapat Rumah Sakit Sesuai Dengan Kondisi Pasien :  " + itemRS.getNamaRS() );
+        insertLogical( new Hope() );
+        
+end
+

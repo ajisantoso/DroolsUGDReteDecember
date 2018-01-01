@@ -1,0 +1,16 @@
+//created on: Dec 15, 2017
+package symptomsBased
+import com.ajitrisantoso.ItemSymptoms;
+import com.ajitrisantoso.ItemRS;
+import com.ajitrisantoso.Hope;
+
+rule "GunShot"
+	when
+        //conditions
+        $item : ItemSymptoms (typeofSymptoms == ItemSymptoms.Symptoms.GunShot)
+    then
+        //actions
+        // System.out.println( "Terdapat Rumah Sakit Sesuai Dengan Kondisi Pasien :  " + itemRS.getNamaRS() );
+        $item.setExpertRec("Terdekat, Dokter Bedah Umum,Kamar Operasi,Kamar Inap Tersedia");
+end
+

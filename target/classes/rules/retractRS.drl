@@ -1,0 +1,28 @@
+//created on: Dec 15, 2017
+package symptomsBased
+
+import com.ajitrisantoso.ItemSymptoms;
+import com.ajitrisantoso.ItemRS;
+
+rule "Retracting RS"
+    when
+        //conditions
+        $itemRS : ItemRS( $namaRS : namaRS,
+        					$VK 	: VK,
+        					$ICU	: ICU,
+        					$ICCU	: ICCU,
+        					$OR		: OR,
+        					$KamarInap : kamarInap;
+        					$DrUmum	: DrUmum,      				
+        					$DrSpBedah		: DrSpBedah,
+        					$DrSpKandungan : DrSpKandungan,
+        					$DrSpParu	: DrSpParu,
+        					$DrSpSyaraf : DrSpSyaraf,
+        					$DrSpUrologi : DrSpUrologi,
+        					$DrSpBedahTulang : DrSpBedahTulang)			 
+    then
+        //actions
+      System.out.println("RS Terdaftar : " +$namaRS+" VK: "+$VK+",ICU:"+$ICU+",OR: "+$OR+",Kamar Inap: "+$KamarInap+",DrUmum :"+$DrUmum+",DrSpBedah:"+$DrSpBedah);
+        
+end
+
